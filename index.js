@@ -1,34 +1,43 @@
 const adventurer = {
-    name: "Robin",
-    health: 10,
-    inventory: ["sword", "potion", "artifact"],
-    companion: {
-        name: "Leo",
-        type: "Cat"
-    }
+  name: "Randi",
+  health: 100,
+  inventory: [
+    "crystals",
+    "florida water",
+    "sage",
+    "Ancestors",
+    "Divine",
+    "herbs",
+    "tarot cards",
+    "Love",
+    "High John The Conqueror",
+  ],
 };
+for (let item of adventurer.inventory) {
+  console.log(item);
+}
+
+adventurer.companion = {
+  name: "Shawn",
+  type: "Son of God",
+};
+
+console.log(adventurer.companion);
 
 adventurer.companion.companion = {
-    name: "Frank",
-    type: "Flea",
-    belongings: ["small hat", "sunglasses"]
+  name: "Children",
+  type: "Next Generation",
+  belongings: ["Hope", "Faith", "Love", "Purity"],
 };
 
-const adventurer = {
-    name: "Robin",
-    health: 10,
-    inventory: ["sword", "potion", "artifact"],
-    companion: {
-        name: "Leo",
-        type: "Cat",
-        companion: {
-            name: "Frank",
-            type: "Flea",
-            belongings: ["small hat", "sunglasses"]
-        }
-    },
-    roll: (mod = 0) {
-       const result = Math.floor(Math.random( * 20) + 1 + mod;
-       console.log(`${this.name} rolled a ${result}.`); 
-    }
-}
+console.log(adventurer.companion.companion);
+
+adventurer.modifyHealth = function (amount) {
+  this.health += amount;
+  console.log(
+    `${this.name}'s health is now ${this.health > 0 ? this.health : 0}.`
+  );
+};
+
+adventurer.modifyHealth(-50);
+adventurer.modifyHealth(50);
